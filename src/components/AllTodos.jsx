@@ -47,11 +47,11 @@ const AllTodos = () => {
         {allTodos.map((todo) => (
           <li
             key={todo.id}
-            className={`px-6 py-2 text-white border border-slate-100 ${
+            className={`px-6 py-2 w-full text-white border border-slate-100 ${
               todo.completed ? "bg-green-300" : "bg-slate-800"
-            } flex justify-between items-center gap-6`}
+            } flex justify-between items-center md:gap-6`}
           >
-            <div className="flex gap-3 items-center">
+            <div className="flex gap-3 items-center w-1/2">
               <input
                 type="checkbox"
                 name="checkbox"
@@ -72,24 +72,24 @@ const AllTodos = () => {
                 readOnly={editingId !== todo.id}
               />
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-2 md:gap-4 w-1/2 justify-end">
               {editingId === todo.id ? (
                 <button
-                  className="rounded-full bg-yellow-600 hover:bg-yellow-700 px-5 py-2"
+                  className="rounded-full bg-yellow-600 hover:bg-yellow-700 px-3  md:px-5 py-2"
                   onClick={() => handleSave(todo)}
                 >
                   <VscSave className="font-bold text-xl" />
                 </button>
               ) : (
                 <button
-                  className="rounded-full bg-green-600 hover:bg-green-700 px-5 py-2"
+                  className="rounded-full bg-green-600 hover:bg-green-700 px-3 md:px-5 py-2"
                   onClick={() => handleEdit(todo)}
                 >
                   <CiEdit className="font-bold text-xl" />
                 </button>
               )}
               <button
-                className="rounded-full bg-rose-600 hover:bg-rose-700 px-5 py-2"
+                className="rounded-full bg-rose-600 hover:bg-rose-700 px-3 md:px-5 py-2"
                 onClick={() => {
                   handleDelete(todo.id);
                 }}
